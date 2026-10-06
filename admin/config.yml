@@ -1,6 +1,6 @@
 backend:
   name: github
-  repo: YOUR-GITHUB-USERNAME/gokulchetry.com
+  repo: jikmik698/gokulchetry.com
   branch: main
   base_url: https://sveltia-cms-auth.YOUR-SUBDOMAIN.workers.dev
 
