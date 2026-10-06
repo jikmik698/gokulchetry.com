@@ -1,0 +1,65 @@
+backend:
+  name: github
+  repo: YOUR-GITHUB-USERNAME/gokulchetry.com
+  branch: main
+  base_url: https://sveltia-cms-auth.YOUR-SUBDOMAIN.workers.dev
+
+media_folder: "images/uploads"
+public_folder: "/images/uploads"
+
+collections:
+  # Home Page - Profile & Cover Picture
+  - name: "home"
+    label: "Home Page"
+    files:
+      - name: "homepage"
+        label: "Home Settings"
+        file: "content/home.md"
+        fields:
+          - {label: "Profile Picture", name: "profile_pic", widget: "image"}
+          - {label: "Cover Picture", name: "cover_pic", widget: "image"}
+          - {label: "Artist Bio", name: "bio", widget: "text"}
+
+  # Gallery - Paintings with Descriptions
+  - name: "gallery"
+    label: "Gallery"
+    folder: "content/gallery"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Painting Title", name: "title", widget: "string"}
+      - {label: "Painting Image", name: "image", widget: "image"}
+      - {label: "Description", name: "description", widget: "text"}
+
+  # Blog - Title + Description
+  - name: "blog"
+    label: "Blog Posts"
+    folder: "content/blog"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Cover Image", name: "image", widget: "image", required: false}
+      - {label: "Content", name: "body", widget: "markdown"}
+
+  # Events
+  - name: "events"
+    label: "Events"
+    folder: "content/events"
+    create: true
+    fields:
+      - {label: "Event Name", name: "title", widget: "string"}
+      - {label: "Date", name: "date", widget: "datetime"}
+      - {label: "Description", name: "description", widget: "text"}
+
+  # Contact
+  - name: "contact"
+    label: "Contact Info"
+    files:
+      - name: "contactinfo"
+        label: "Contact Details"
+        file: "content/contact.md"
+        fields:
+          - {label: "Email", name: "email", widget: "string"}
+          - {label: "Phone", name: "phone", widget: "string"}
+          - {label: "Address", name: "address", widget: "text"}
